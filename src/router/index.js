@@ -8,6 +8,11 @@ const router = createRouter({
       name: 'tim.diskusi',
       component: () => import('@/views/team/Discussion.vue')
     },
+    {
+      path: '/tim/tugas',
+      name: 'tim.tugas',
+      component: () => import('@/views/team/Assignment.vue')
+    },
     // {
     //   path: '/',
     //   name: 'user.index',

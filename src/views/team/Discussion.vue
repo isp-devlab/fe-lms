@@ -27,14 +27,15 @@ import footerComponent from '../../components/Footer.vue'
 				<div class="container">
 					<div class="d-flex overflow-auto d-block d-lg-none h-45px my-5">
 						<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
-							<!--begin::Nav item-->
 							<li class="nav-item">
-								<a class="nav-link text-active-primary me-6 active" href="#">Diskusi (2)</a>
+                <router-link :to="{name: 'tim.diskusi'}" class="nav-link text-active-primary me-6 active">
+										Diskusi (2)
+                </router-link>
 							</li>
-							<!--end::Nav item-->
-							<!--begin::Nav item-->
 							<li class="nav-item">
-								<a class="nav-link text-active-primary me-6" href="#">Tugas (2)</a>
+                <router-link :to="{name: 'tim.tugas'}" class="nav-link text-active-primary me-6">
+										Tugas (2)
+                  </router-link>
 							</li>
 						</ul>
 					</div>
@@ -49,16 +50,16 @@ import footerComponent from '../../components/Footer.vue'
 									</div>
 								</div>
 								<div class="menu-item bg-hover-white">
-									<a href="#" class="menu-link bg-hover-white active bg-white">
+                  <router-link :to="{name: 'tim.diskusi'}" class="menu-link bg-hover-white active bg-white">
 										<span class="menu-title">Diskusi</span>
 										<span class="menu-badge">2</span>
-									</a>
+                  </router-link>
 								</div>
-								<div class="menu-item">
-									<a href="#" class="menu-link bg-hover-white">
+								<div class="menu-item bg-hover-white">
+                  <router-link :to="{name: 'tim.tugas'}" class="menu-link bg-hover-white">
 										<span class="menu-title">Tugas</span>
 										<span class="menu-badge">2</span>
-									</a>
+                  </router-link>
 								</div>
 							</div>
 						</div>

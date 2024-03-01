@@ -6,7 +6,7 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
 import './assets/css/style.css'
-import './assets/css/plugins.css'
+// import './assets/css/plugins.css'
 // import './assets/js/plugins'
 // import './assets/js/scripts'
 
