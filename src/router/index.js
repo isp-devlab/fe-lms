@@ -19,12 +19,12 @@ const router = createRouter({
       component: () => import('@/views/auth/Forget.vue')
     },
     {
-      path: '/tim/diskusi',
+      path: '/tim/:id/diskusi',
       name: 'tim.diskusi',
       component: () => import('@/views/team/Discussion.vue')
     },
     {
-      path: '/tim/tugas',
+      path: '/tim/:id/tugas',
       name: 'tim.tugas',
       component: () => import('@/views/team/Assignment.vue')
     },
