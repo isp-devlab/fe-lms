@@ -24528,7 +24528,7 @@ fieldset:disabled .btn {
 }
 :root {
     --bs-light-primary: #f1faff;
-    --bs-active-primary: #0095e8;
+    --bs-active-primary: #000822;
     --bs-light-success: #e8fff3;
     --bs-active-success: #47be7d;
     --bs-light-info: #f8f5ff;
@@ -24615,7 +24615,7 @@ fieldset:disabled .btn {
     --bg-color: 0, 158, 247;
 }
 .bg-primary.hoverable:hover {
-    background-color: #0095e8 !important;
+    background-color: #000822 !important;
 }
 .bg-hover-light-primary {
     cursor: pointer;
@@ -31043,8 +31043,8 @@ a:hover {
 .btn.btn-primary:hover:not(.btn-active),
 .show > .btn.btn-primary {
     color: #fff;
-    border-color: #0095e8;
-    background-color: #0095e8 !important;
+    border-color: #000822;
+    background-color: #000822 !important;
 }
 .btn-check:active + .btn.btn-primary i,
 .btn-check:checked + .btn.btn-primary i,

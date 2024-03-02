@@ -4,6 +4,21 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: '/auth/daftar',
+      name: 'auth.register',
+      component: () => import('@/views/auth/Register.vue')
+    },
+    {
+      path: '/auth/masuk',
+      name: 'auth.login',
+      component: () => import('@/views/auth/Login.vue')
+    },
+    {
+      path: '/auth/lupa-password',
+      name: 'auth.forget',
+      component: () => import('@/views/auth/Forget.vue')
+    },
+    {
       path: '/tim/diskusi',
       name: 'tim.diskusi',
       component: () => import('@/views/team/Discussion.vue')

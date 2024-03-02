@@ -68,7 +68,7 @@
 												</span>
 											</div>
 											<div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px dropdown-menu">
-												<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('../assets/img/misc/notif.png')">
+												<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-color:#000C32">
 													<h3 class="text-white fw-bold px-9 mt-10 mb-2">Notifikasi</h3>
 													<span class="text-white fw-bold  fs-8 opacity-75 px-9 mb-7">24 Notifikasi</span>
 												</div>
