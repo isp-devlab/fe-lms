@@ -1,21 +1,5 @@
-<script setup>
-import headerComponet from '../../components/Header.vue'
-import footerComponent from '../../components/Footer.vue'
-</script>
-
 <template>
-  <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-enabled sidebar-enabled bg-light">
-		<div class="d-flex flex-column flex-root">
-			<div class="page d-flex flex-column flex-column-fluid">
-				
-        <headerComponet>
-        </headerComponet>
-
-				<div class="container-xxl">
-            <div class="row justify-content-center">
-              <div class="col-12">
-                <div class="card my-15 shadow-none border-0">
-                  <div class="card-body p-10 pb-0">
+                    <div class="card-body p-10 pb-0">
 										<div class="d-flex flex-wrap flex-sm-nowrap mb-3">
 											<div class="me-7 mb-4">
 												<div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
@@ -62,10 +46,12 @@ import footerComponent from '../../components/Footer.vue'
 												</div>
 											</div>
 										</div>
+                    <div class="separator separator-dashed border-gray-300 px-0 mx-0"></div>
+
 										<div class="d-flex overflow-auto h-55px">
 											<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
 												<li class="nav-item">
-													<a class="nav-link text-active-primary me-6" href="#">Akun</a>
+													<a class="nav-link text-active-primary me-6" :class="{ 'active': setting }" href="#">Setting</a>
 												</li>
 												<li class="nav-item">
 													<a class="nav-link text-active-primary me-6 active" href="Tim">Tim</a>
@@ -76,17 +62,4 @@ import footerComponent from '../../components/Footer.vue'
 											</ul>
 										</div>
                   </div>
-                </div>
-              </div>
-            </div>
-				</div>
-				
-
-        <footerComponent>
-        </footerComponent>
-
-			</div>
-		</div>
-
-	</body>
 </template>

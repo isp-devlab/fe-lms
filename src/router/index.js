@@ -29,9 +29,9 @@ const router = createRouter({
       component: () => import('@/views/team/Assignment.vue')
     },
     {
-      path: '/profil/akun',
-      name: 'profil.akun',
-      component: () => import('@/views/profile/Account.vue')
+      path: '/profil/pengaturan',
+      name: 'profil.pengaturan',
+      component: () => import('@/views/profile/Setting.vue')
     },
     // {
     //   path: '/',
