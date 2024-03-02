@@ -305,20 +305,5 @@ import footerComponent from '../../components/Footer.vue'
 			</span>
 		</div>
 	
-		<div class="modal fade" tabindex="-1" id="kt_modal_1">
-			<div class="modal-dialog  modal-dialog-centered">
-					<div class="modal-content">
-							<div class="modal-body text-center p-md-19 p-10">
-									<h1 class="text-dark fw-bolder fs-1">Tukar Kode</h1>
-									<p>Masukan kode referal tim belajar anda</p>
-									<input type="text" class="form-control" placeholder="Masukan Kode Referal"/>
-									<div class="mt-5">
-										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-										<button type="button" class="btn btn-primary">Submit</button>
-									</div>
-							</div>
-					</div>
-			</div>
-		</div>
 	</body>
 </template>

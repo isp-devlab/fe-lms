@@ -28,6 +28,11 @@ const router = createRouter({
       name: 'tim.tugas',
       component: () => import('@/views/team/Assignment.vue')
     },
+    {
+      path: '/profil/akun',
+      name: 'profil.akun',
+      component: () => import('@/views/profile/Account.vue')
+    },
     // {
     //   path: '/',
     //   name: 'user.index',

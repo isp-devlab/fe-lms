@@ -13,9 +13,9 @@ import footerComponent from '../../components/Footer.vue'
 
 				<div class="container-xxl">
             <div class="row justify-content-center">
-              <div class="col-lg-5">
+              <div class="col-lg-5 col-md-8">
                 <div class="card my-15 shadow-none border-0">
-                  <div class="card-body p-15">
+                  <div class="card-body p-10 p-md-15">
                     <div class="mb-9">
                       <h1 class="card-title fw-bolder fs-2x pb-0">Masuk</h1>
                       <span class="text-gray-500 fs-6">Silahkan masuk untuk melanjutkan</span>

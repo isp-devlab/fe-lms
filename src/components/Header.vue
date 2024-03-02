@@ -132,12 +132,12 @@
 														<span class="menu-text">Tukar Kode</span>
 													</a>
 												</div>
-												<div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-													<a href="#" class="menu-link px-5">
+												<div class="menu-item px-5 dropleft">
+													<a href="#" class="menu-link px-5" data-bs-toggle="dropdown">
 														<span class="menu-title">Tim Saya</span>
 														<span class="menu-arrow"></span>
 													</a>
-													<div class="menu-sub menu-sub-dropdown w-175px py-4">
+													<div class="menu-sub menu-sub-dropdown w-175px py-4 dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
 														<div class="menu-item px-3">
 															<a href="#" class="menu-link px-5">Batch 1</a>
 														</div>
@@ -166,5 +166,21 @@
 							</div>
 						</div>
 					</div>
+		</div>
+
+		<div class="modal fade" tabindex="-1" id="kt_modal_1">
+			<div class="modal-dialog  modal-dialog-centered">
+					<div class="modal-content">
+							<div class="modal-body text-center p-md-19 p-10">
+									<h1 class="text-dark fw-bolder fs-1">Tukar Kode</h1>
+									<p>Masukan kode referal tim belajar anda</p>
+									<input type="text" class="form-control" placeholder="Masukan Kode Referal"/>
+									<div class="mt-5">
+										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+										<button type="button" class="btn btn-primary">Submit</button>
+									</div>
+							</div>
+					</div>
+			</div>
 		</div>
 </template>
