@@ -42,7 +42,7 @@ import footerComponent from '../../components/Footer.vue'
                     <div class="text-center">
                       <span>Belum punya akun? 
                         <router-link :to="{name: 'auth.login'}" class="fw-bold link-underline-primary">
-                          Masuk
+                          Daftar
                         </router-link>
                       </span>
                     </div>

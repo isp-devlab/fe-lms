@@ -46,8 +46,6 @@ import footerComponent from '../../components/Footer.vue'
                         </span>
                       </div>
                     </form>
-                    <p>Username is: {{input.email}}</p>
-                    <p>Password is: {{input.password}}</p>
                   </div>
                 </div>
               </div>
