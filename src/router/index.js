@@ -33,11 +33,11 @@ const router = createRouter({
       name: 'profil.pengaturan',
       component: () => import('@/views/profile/Setting.vue')
     },
-    // {
-    //   path: '/',
-    //   name: 'user.index',
-    //   component: () => import('@/views/user/Index.vue')
-    // },
+    {
+      path: '/home/homepage',
+      name: 'home.homepage',
+      component: () => import('@/views/home/homepage.vue')
+    },
     // {
     //   path: '/create',
     //   name: 'user.create',
