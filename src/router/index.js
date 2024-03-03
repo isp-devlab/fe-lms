@@ -29,8 +29,8 @@ const router = createRouter({
       component: () => import('@/views/team/Assignment.vue')
     },
     {
-      path: '/profil/pengaturan',
-      name: 'profil.pengaturan',
+      path: '/profil/setelan',
+      name: 'profil.setelan',
       component: () => import('@/views/profile/Setting.vue')
     },
     {
@@ -38,6 +38,20 @@ const router = createRouter({
       name: 'home.homepage',
       component: () => import('@/views/home/homepage.vue')
     },
+      path: '/profil/tim',
+      name: 'profil.tim',
+      component: () => import('@/views/profile/Team.vue')
+    },
+    {
+      path: '/profil/kelas',
+      name: 'profil.kelas',
+      component: () => import('@/views/profile/Class.vue')
+    },
+    // {
+    //   path: '/',
+    //   name: 'user.index',
+    //   component: () => import('@/views/user/Index.vue')
+    // },
     // {
     //   path: '/create',
     //   name: 'user.create',
