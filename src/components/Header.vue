@@ -26,8 +26,8 @@
 								</div>
 							</div>
 							<div class="d-flex align-items-stretch flex-shrink-0">
-								<div class="d-flex align-items-stretch flex-shrink-0">
-									<div class="d-flex align-items-stretch ms-2 me-2">
+								<div class="d-flex">
+									<div class="d-flex align-items-stretch ms-2 me-3">
 										<div id="kt_header_search" class="d-flex align-items-stretch d-md-none d-block dropdown">
 												<div class="d-flex align-items-center" data-bs-toggle="dropdown">
 													<div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px">
@@ -54,6 +54,14 @@
 												</div>
 										</div>
 									</div>
+									<!-- <div class=" pt-lg-7 pt-md-3 pt-5">
+										<router-link :to="{name: 'auth.register'}" class="btn btn-light me-6">
+											Daftar
+                    </router-link>
+										<router-link :to="{name: 'auth.login'}" class="btn btn-primary">
+											Masuk
+                    </router-link>
+									</div> -->
 									<div class="d-flex align-items-center ms-2">
 										<div class="dropdown">
 											<div class="btn btn-icon btn-active-light btn-active-color-primary position-relative w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="dropdown">
