@@ -23,7 +23,7 @@ import footerComponent from '../../components/Footer.vue'
                       </div>
                       <div class="mb-5">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Email" v-model="input.email"/>
+                        <input type="email" class="form-control" placeholder="Email" v-model="email"/>
                       </div>
                       <div class="mb-5">
                         <div class="d-flex justify-content-between">
@@ -32,10 +32,10 @@ import footerComponent from '../../components/Footer.vue'
                               Lupa Password ?
                             </router-link>
                         </div>
-                        <input type="password" class="form-control" placeholder="********" v-model="input.password"/>
+                        <input type="password" class="form-control" placeholder="********" v-model="password"/>
                       </div>
                       <div class="mb-5">
-                        <button type="submit" v-on:click.prevent = "login()" class="btn btn-primary w-100">Masuk</button>
+                        <button type="submit"  @click.prevent="login" class="btn btn-primary w-100">Masuk</button>
                       </div>
                       <div class="text-center">
                         <span>
@@ -64,24 +64,27 @@ import footerComponent from '../../components/Footer.vue'
 
 <script>
 export default {
-  name: 'LoginView',
-  data(){
-    return{
-        input:{
-            email: "",
-            password: ""
-        }
-    }
-  },
-  methods:{
-    login(){
-      //make sure username OR password are not empty
-      if(this.input.email != "" || this.input.password != ""){
-        console.log("authenticated")
-      }else{
-        console.log("Username and Password can not be empty")
-      }
-    }
-  },
+
+data() {
+  return {
+    email: '',
+    password: ''
+  }
+},
+
+methods: {
+  login() {
+    let email    = this.email
+    let password = this.password
+    this.$store
+      .dispatch("LOGIN", {
+        email,
+        password
+      })
+      .then(() => this.$router.push("/dashboard"))
+      .catch(err => console.log(err))
+  }
+}
+
 }
 </script>
