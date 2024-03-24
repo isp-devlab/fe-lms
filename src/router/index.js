@@ -7,19 +7,34 @@ const routes = [
     component: () => import('@/views/Home.vue')
   },
   {
-    path: '/auth/daftar',
+    path: '/daftar',
     name: 'auth.register',
     component: () => import('@/views/auth/Register.vue')
   },
   {
-    path: '/auth/masuk',
+    path: '/daftar/sukses',
+    name: 'auth.register.success',
+    component: () => import('@/views/auth/RegisterSuccess.vue')
+  },
+  {
+    path: '/aktivasi/sukses',
+    name: 'auth.activation.success',
+    component: () => import('@/views/auth/ActivationSuccess.vue')
+  },
+  {
+    path: '/masuk',
     name: 'auth.login',
     component: () => import('@/views/auth/Login.vue')
   },
   {
-    path: '/auth/lupa-password',
+    path: '/lupa-password',
     name: 'auth.forget',
     component: () => import('@/views/auth/Forget.vue')
+  },
+  {
+    path: '/reset-password/:id',
+    name: 'auth.reset',
+    component: () => import('@/views/auth/Reset.vue')
   },
   {
     path: '/tim/:id/diskusi',

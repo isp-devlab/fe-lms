@@ -1,6 +1,6 @@
 <script setup>
-import headerComponet from '../../components/Header.vue'
 import footerComponent from '../../components/Footer.vue'
+import headerComponet from '../../components/Header.vue'
 </script>
 
 <template>
@@ -16,12 +16,11 @@ import footerComponent from '../../components/Footer.vue'
               <div class="col-lg-5 col-md-8">
                 <div class="card my-15 shadow-none border-0">
                   <div class="card-body p-10 p-md-15">
-                    <Form @submit="handleLogin" :validation-schema="schema">
-                      <div class="mb-9">
-                        <h1 class="card-title fw-bolder fs-2x pb-0">Masuk</h1>
-                        <span class="text-gray-500 fs-6">Silahkan masuk untuk melanjutkan</span>
-                      </div>
-                      <div v-if="message" class="alert alert-dismissible bg-light-danger d-flex flex-row p-5" role="alert">
+                    <div class="mb-9">
+                      <h1 class="card-title fw-bolder fs-2x pb-0">Reset Password</h1>
+                      <span class="text-gray-500 fs-6">Ubah password akun kamu</span>
+                    </div>
+                      <div v-if="message" class="alert alert-dismissible d-flex flex-row p-5 align-items-center" :class="successful ? 'bg-light-dark' : 'bg-light-danger'" role="alert">
                         <span class="me-3">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
@@ -31,39 +30,33 @@ import footerComponent from '../../components/Footer.vue'
                           {{ message }}
                         </span>
                       </div>
+                    <Form @submit="handleReset" :validation-schema="schema">
+                      <Field type="hidden" :value="token" name="token"/>
                       <div class="mb-5">
                         <label class="form-label">Email</label>
-                        <Field type="email" class="form-control" placeholder="Email" name="email"/>
+                        <Field type="email" class="form-control" placeholder="Email" :value="email" name="email" readonly/>
                         <ErrorMessage name="email" class="error-feedback text-danger" />
                       </div>
                       <div class="mb-5">
-                        <div class="d-flex justify-content-between">
-                          <label class="form-label">Password</label>
-                            <router-link :to="{name: 'auth.forget'}" class="fw-bold link-underline-primary">
-                              Lupa Password ?
-                            </router-link>
-                        </div>
+                        <label class="form-label">Password Baru</label>
                         <Field type="password" class="form-control" placeholder="********" name="password"/>
                         <ErrorMessage name="password" class="error-feedback text-danger" />
                       </div>
                       <div class="mb-5">
-                        <button class="btn btn-primary w-100" type="submit" :disabled="loading">
-                          <span
-                            v-show="loading"
-                            class="spinner-border spinner-border-sm me-3"
-                          ></span>
-                          <span>Masuk</span>
-                        </button>
-                      </div>
-                      <div class="text-center">
-                        <span>
-                            Belum punya akun? 
-                            <router-link :to="{name: 'auth.register'}" class="fw-bold link-underline-primary">
-                              Daftar
-                            </router-link>
-                        </span>
+                          <button class="btn btn-primary w-100" type="submit" :disabled="loading">
+                            <span
+                              v-show="loading"
+                              class="spinner-border spinner-border-sm me-3"
+                            ></span>
+                            <span>Ubah Password</span>
+                          </button>
                       </div>
                     </Form>
+                    <div class="text-center">
+                      <span><router-link :to="{name: 'auth.login'}" class="fw-bold link-underline-primary">
+                          Batal
+                        </router-link></span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -83,6 +76,8 @@ import footerComponent from '../../components/Footer.vue'
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: "Login",
@@ -100,12 +95,19 @@ export default {
       password: yup
         .string()
         .required("Password wajib diisi!")
+        .min(6, "Minimal 6 karakter!")
     });
-
+    const router = useRouter();
+    const email = ref('');
+    const token = ref('');
+    email.value = router.currentRoute.value.query.email || '';
+    token.value = router.currentRoute.value.params.id || '';
     return {
       loading: false,
       message: "",
       schema,
+      email,
+      token
     };
   },
   computed: {
@@ -119,12 +121,12 @@ export default {
     }
   },
   methods: {
-    handleLogin(user) {
+    handleReset(user) {
       this.loading = true;
 
-      this.$store.dispatch("auth/login", user).then(
+      this.$store.dispatch("auth/reset", user).then(
         () => {
-          this.$router.push({ name: 'home' });
+          this.$router.push({ name: 'auth.login' });
         },
         (error) => {
           this.loading = false;

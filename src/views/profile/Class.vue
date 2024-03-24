@@ -48,12 +48,10 @@ import accountCard from './component/AccountCard.vue'
 									<div class="card-body">
                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://preview.keenthemes.com/metronic8/demo5/assets/media/stock/600x400/img-23.jpg')"></div>
 									  <div class="mt-5">
-										  <a href="#" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">25 Products Mega Bundle with 50% off discount amazing</a>
+										  <a href="#" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">Start backend with AdonisJS</a>
                       <div class="fw-bold fs-5 text-gray-600 text-dark mt-3">We’ve been focused on making a the from also not been eye</div>
                       <div class="fs-6 fw-bolder mt-5 d-flex flex-stack">
-                        <span class="badge border-dashed fs-2 fw-bolder text-dark p-2">
-                        <span class="fs-6 fw-bold text-gray-400">$</span>28</span>
-										    <a href="#" class="btn btn-primary">Purchase</a>
+										    <a href="#" class="btn btn-primary w-100">Lanjutkan Belajar</a>
 									    </div>
 										</div>
                   </div>
@@ -64,12 +62,10 @@ import accountCard from './component/AccountCard.vue'
 									<div class="card-body">
                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://preview.keenthemes.com/metronic8/demo5/assets/media/stock/600x400/img-23.jpg')"></div>
 									  <div class="mt-5">
-										  <a href="#" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">25 Products Mega Bundle with 50% off discount amazing</a>
+										  <a href="#" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">Start backend with AdonisJS</a>
                       <div class="fw-bold fs-5 text-gray-600 text-dark mt-3">We’ve been focused on making a the from also not been eye</div>
                       <div class="fs-6 fw-bolder mt-5 d-flex flex-stack">
-                        <span class="badge border-dashed fs-2 fw-bolder text-dark p-2">
-                        <span class="fs-6 fw-bold text-gray-400">$</span>28</span>
-										    <a href="#" class="btn btn-primary">Purchase</a>
+										    <a href="#" class="btn btn-primary w-100">Lanjutkan Belajar</a>
 									    </div>
 										</div>
                   </div>
@@ -80,12 +76,10 @@ import accountCard from './component/AccountCard.vue'
 									<div class="card-body">
                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://preview.keenthemes.com/metronic8/demo5/assets/media/stock/600x400/img-23.jpg')"></div>
 									  <div class="mt-5">
-										  <a href="#" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">25 Products Mega Bundle with 50% off discount amazing</a>
+										  <a href="#" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">Start backend with AdonisJS</a>
                       <div class="fw-bold fs-5 text-gray-600 text-dark mt-3">We’ve been focused on making a the from also not been eye</div>
                       <div class="fs-6 fw-bolder mt-5 d-flex flex-stack">
-                        <span class="badge border-dashed fs-2 fw-bolder text-dark p-2">
-                        <span class="fs-6 fw-bold text-gray-400">$</span>28</span>
-										    <a href="#" class="btn btn-primary">Purchase</a>
+										    <a href="#" class="btn btn-primary w-100">Lanjutkan Belajar</a>
 									    </div>
 										</div>
                   </div>
