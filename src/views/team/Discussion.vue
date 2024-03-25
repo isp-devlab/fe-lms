@@ -15,11 +15,25 @@ import footerComponent from '../../components/Footer.vue'
 					<div class="card-body container-xxl pt-10 pb-8 py-15">
 						<div class="d-md-flex justify-content-between my-5">
 							<div class="align-items-center">
-								<h1 class="fw-bold me-3 text-white">Backend Developer Batch 1</h1>
-								<span class="fw-bold text-white opacity-50">17 Peserta</span>
+								<h1 class="fw-bold me-3 text-white">{{ group.name }}</h1>
+								<span class="fw-bold text-white opacity-50">{{ member }} Peserta</span>
 							</div>
 							<div>
-								<a href="" class="btn btn-light btn-sm mt-5 mt-md-0">Keluar Tim</a>
+								<button type="button" data-bs-toggle="modal" data-bs-target="#leave" class="btn btn-light btn-sm mt-5 mt-md-0">Keluar Tim</button>
+							</div>
+							<div class="modal modal-delete" id="leave">
+								<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+									<div class="modal-content shadow rounded ">
+										<div class="modal-body p-4 text-center py-8">
+											<h5 class="mb-2">Konfirmasi</h5>
+											<p class="mb-0">Kamu yakin ingin keluar dari tim ini?</p>
+										</div>
+										<div class="modal-footer flex-nowrap p-0">
+											<button type="button" class="btn-delete-oke btn btn-lg btn-secondary bg-transparent text-dark fs-6 text-decoration-none col-6 m-0 rounded-0 border-end" @click.prevent="groupLeave">Keluar</button>
+											<button type="button" class="btn btn-lg btn-secondary bg-transparent text-dark fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal" aria-label="Close">Batal</button>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -135,63 +149,20 @@ import footerComponent from '../../components/Footer.vue'
 						</div>
 					</div>
 					<div class="sidebar p-5 px-lg-0 py-lg-11">
-						<div class="card mb-5 mb-lg-10 shadow-none border-0">
+						<div class="card mb-5 mb-lg-10 shadow-none border-0 mt-10 mt-md-0">
 							<div class="card-header align-items-center border-0">
 								<h3 class="card-title fw-bolder text-gray-900 fs-3">Peserta</h3>
 							</div>
 							<div class="card-body pt-0">
-								<div class="d-flex mb-5">
+								<div class="d-flex mb-5" v-for="members in group.member" :key="members.id">
 									<div class="d-flex align-items-center py-1">
 										<div class="symbol symbol-35px me-2">
-											<img src="../../assets/img/avatars/150-3.jpg" alt="user" />
+											<img v-if="members.user.image" :src="members.user.image" alt="image" />
+                      <img v-else :src="'https://ui-avatars.com/api/?background=random&name=' + members.user.name" alt="image" />
 										</div>
 										<div class="d-flex flex-column align-items-start justify-content-center">
-											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">Sandra Piquet</span>
-											<span class="text-muted fs-8 fw-bold lh-1">1 day ago</span>
-										</div>
-									</div>
-								</div>
-								<div class="d-flex mb-5">
-									<div class="d-flex align-items-center py-1">
-										<div class="symbol symbol-35px me-2">
-											<img src="../../assets/img/avatars/150-3.jpg" alt="user" />
-										</div>
-										<div class="d-flex flex-column align-items-start justify-content-center">
-											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">Sandra Piquet</span>
-											<span class="text-muted fs-8 fw-bold lh-1">1 day ago</span>
-										</div>
-									</div>
-								</div>
-								<div class="d-flex mb-5">
-									<div class="d-flex align-items-center py-1">
-										<div class="symbol symbol-35px me-2">
-											<img src="../../assets/img/avatars/150-3.jpg" alt="user" />
-										</div>
-										<div class="d-flex flex-column align-items-start justify-content-center">
-											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">Sandra Piquet</span>
-											<span class="text-muted fs-8 fw-bold lh-1">1 day ago</span>
-										</div>
-									</div>
-								</div>
-								<div class="d-flex mb-5">
-									<div class="d-flex align-items-center py-1">
-										<div class="symbol symbol-35px me-2">
-											<img src="../../assets/img/avatars/150-3.jpg" alt="user" />
-										</div>
-										<div class="d-flex flex-column align-items-start justify-content-center">
-											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">Sandra Piquet</span>
-											<span class="text-muted fs-8 fw-bold lh-1">1 day ago</span>
-										</div>
-									</div>
-								</div>
-								<div class="d-flex mb-5">
-									<div class="d-flex align-items-center py-1">
-										<div class="symbol symbol-35px me-2">
-											<img src="../../assets/img/avatars/150-3.jpg" alt="user" />
-										</div>
-										<div class="d-flex flex-column align-items-start justify-content-center">
-											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">Sandra Piquet</span>
-											<span class="text-muted fs-8 fw-bold lh-1">1 day ago</span>
+											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">{{ members.user.name }}</span>
+											<span class="text-muted fs-8 fw-bold lh-1">Bergabung pada: {{ formatDate(members.created_at) }}</span>
 										</div>
 									</div>
 								</div>
@@ -202,13 +173,14 @@ import footerComponent from '../../components/Footer.vue'
 								<h3 class="card-title fw-bolder text-gray-900 fs-3">Mentor</h3>
 							</div>
 							<div class="card-body pt-0">
-								<div class="d-flex mb-5">
+								<div class="d-flex mb-5" v-for="teachers in group.teacher" :key="teachers.id">
 									<div class="d-flex align-items-center py-1">
 										<div class="symbol symbol-35px me-2">
-											<img src="../../assets/img/avatars/150-3.jpg" alt="user" />
+											<img v-if="teachers.mentor.image" :src="teachers.mentor.image" alt="image" />
+                      <img v-else :src="'https://ui-avatars.com/api/?background=random&name=' + teachers.mentor.name" alt="image" />
 										</div>
 										<div class="d-flex flex-column align-items-start justify-content-center">
-											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">Sandra Piquet</span>
+											<span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">{{ teachers.mentor.name }}</span>
 											<span class="text-muted fs-8 fw-bold lh-1">1 day ago</span>
 										</div>
 									</div>
@@ -219,8 +191,10 @@ import footerComponent from '../../components/Footer.vue'
 				</div>
 				
 
-        <footerComponent>
-        </footerComponent>
+        <div class="mt-15 pt-15 mt-lg-0">
+					<footerComponent>
+        	</footerComponent>
+				</div>
 
 			</div>
 		</div>
@@ -310,21 +284,68 @@ import footerComponent from '../../components/Footer.vue'
 				</svg>
 			</span>
 		</div>
-	
-		<div class="modal fade" tabindex="-1" id="kt_modal_1">
-			<div class="modal-dialog  modal-dialog-centered">
-					<div class="modal-content">
-							<div class="modal-body text-center p-md-19 p-10">
-									<h1 class="text-dark fw-bolder fs-1">Tukar Kode</h1>
-									<p>Masukan kode referal tim belajar anda</p>
-									<input type="text" class="form-control" placeholder="Masukan Kode Referal"/>
-									<div class="mt-5">
-										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-										<button type="button" class="btn btn-primary">Submit</button>
-									</div>
-							</div>
-					</div>
-			</div>
-		</div>
 	</body>
 </template>
+
+<script>
+import ProfileService from "../../services/group.service";
+import { format } from 'date-fns'
+
+export default {
+  name: "Team",
+  data() {
+    return {
+      group: [],
+			member: 0,
+    };
+  },
+	computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  created() {
+    if (!this.loggedIn) {
+      this.$router.push({ name: 'home' });
+    }
+  },
+  mounted() {
+		const id = this.$route.params.id;
+    ProfileService.groupShow(id).then(
+				(response) => {
+					this.group = response.data.data;
+					this.member = this.group ? this.group.member.length : 0;
+				},
+				(error) => {
+					this.content =
+						(error.response &&
+							error.response.data &&
+							error.response.data.message) ||
+						error.message ||
+						error.toString();
+				}
+		);
+	 },
+	methods: {
+    groupLeave() {
+			const id = this.$route.params.id;
+			ProfileService.leave(id).then(
+				(response) => {
+					this.$router.push({ name: 'home' });
+				},
+				(error) => {
+					this.content =
+						(error.response &&
+							error.response.data &&
+							error.response.data.message) ||
+						error.message ||
+						error.toString();
+				}
+			);
+    },
+    formatDate(date) {
+      return format(new Date(date), 'dd/MM/yyyy'); // Ubah format tanggal sesuai kebutuhan
+    },
+  }
+};
+</script>
