@@ -26,8 +26,8 @@
 								</div>
 							</div>
 							<div class="d-flex align-items-stretch flex-shrink-0">
-								<div class="d-flex align-items-stretch flex-shrink-0">
-									<div class="d-flex align-items-stretch ms-2 me-2">
+								<div class="d-flex">
+									<div class="d-flex align-items-stretch ms-2 me-3">
 										<div id="kt_header_search" class="d-flex align-items-stretch d-md-none d-block dropdown">
 												<div class="d-flex align-items-center" data-bs-toggle="dropdown">
 													<div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px">
@@ -54,7 +54,15 @@
 												</div>
 										</div>
 									</div>
-									<div class="d-flex align-items-center ms-2">
+									<div v-if="!currentUser" class=" pt-lg-7 pt-md-3 pt-5">
+										<router-link :to="{name: 'auth.register'}" class="btn btn-light me-6">
+											Daftar
+                    </router-link>
+										<router-link :to="{name: 'auth.login'}" class="btn btn-primary">
+											Masuk
+                    </router-link>
+									</div>
+									<div v-if="currentUser" class="d-flex align-items-center ms-2">
 										<div class="dropdown">
 											<div class="btn btn-icon btn-active-light btn-active-color-primary position-relative w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="dropdown">
 												<span class="svg-icon svg-icon-2x">
@@ -100,12 +108,12 @@
 											</div>
 										</div>
 									</div>
-									<div class="d-flex align-items-center ms-5">
+									<div v-if="currentUser" class="d-flex align-items-center ms-5">
 										<div class="dropdown">
 											<div class="btn btn-active-light d-flex align-items-center bg-hover-light py-2 px-2 px-md-3" data-bs-toggle="dropdown">
 												<div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2">
 													<span class="text-muted fs-7 fw-bold lh-1 mb-2">Hello</span>
-													<span class="text-dark fs-base fw-bolder lh-1">Richard</span>
+													<span class="text-dark fs-base fw-bolder lh-1">{{ currentUser.user.name }}</span>
 												</div>
 												<div class="symbol symbol-30px symbol-md-40px">
 													<img src="../assets/img/avatars/150-26.jpg" alt="image" />
@@ -118,8 +126,8 @@
 															<img alt="Logo" src="../assets/img/avatars/150-26.jpg" />
 														</div>
 														<div class="d-flex flex-column">
-															<div class="fw-bolder d-flex align-items-center fs-5">Max Smith</div>
-															<a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+															<div class="fw-bolder d-flex align-items-center fs-5">{{ currentUser.user.name }}</div>
+															<a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ currentUser.user.email }}</a>
 														</div>
 													</div>
 												</div>
@@ -149,7 +157,7 @@
 													</div>
 												</div>
 												<div class="menu-item px-5">
-													<a href="#" class="menu-link px-5">Keluar</a>
+													<a @click.prevent="logOut" class="menu-link px-5">Keluar</a>
 												</div>
 												<div class="separator my-2"></div>
 												<div class="menu-item px-5">
@@ -186,3 +194,19 @@
 			</div>
 		</div>
 </template>
+
+<script>
+export default {
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push({ name: 'home' });
+    }
+  }
+};
+</script>

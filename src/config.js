@@ -1,6 +1,6 @@
 const config = {
   production: {
-    apiUrl: 'https://api.unimal.link/api/v1'
+    apiUrl: 'http://127.0.0.1:3333/api/v1'
   }
 };
 

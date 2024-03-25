@@ -42,9 +42,9 @@ import accountCard from './component/AccountCard.vue'
                 </div>
               </div>
             </div>
-						<div class="row justify-content-center mt-5">
-              <div class="col-6">
-                <div class="card shadow-none border-0">
+						<div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="card shadow-none border-0 mt-5">
 									<div class="card-body">
                     <a href="#" class="d-flex justify-content-between align-items-center">
                       <div>
@@ -92,8 +92,8 @@ import accountCard from './component/AccountCard.vue'
                   </div>
                 </div>
               </div>
-              <div class="col-6">
-                <div class="card shadow-none border-0">
+              <div class="col-md-6">
+                <div class="card shadow-none border-0 mt-5">
 									<div class="card-body">
                     <a href="#" class="d-flex justify-content-between align-items-center">
                       <div>
